@@ -1,0 +1,216 @@
+{
+	"info": {
+		"_postman_id": "936c1e77-68b8-49d5-b8fe-431789f41249",
+		"name": "api-betest-btpn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19447278"
+	},
+	"item": [
+		{
+			"name": "get all user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY3YjA0MDg0ODBlZjlkZGI0OWE5ZiIsImFjY291bnROdW1iZXIiOjk4ODcsImlkZW50aXR5bk51bWJlciI6NTYyMzIsImlhdCI6MTY2ODI2MzEyNywiZXhwIjoxNjY4NDM1OTI3fQ.ytzx7VSVfFhRMySd9i-1tpQh0x7sbUhMv1NLHQmOGYY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "ms-rickykurniawan-betest.vercel.app/users",
+					"host": [
+						"ms-rickykurniawan-betest",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY3YjA0MDg0ODBlZjlkZGI0OWE5ZiIsImFjY291bnROdW1iZXIiOjk4ODcsImlkZW50aXR5bk51bWJlciI6NTYyMzIsImlhdCI6MTY2ODI2MzEyNywiZXhwIjoxNjY4NDM1OTI3fQ.ytzx7VSVfFhRMySd9i-1tpQh0x7sbUhMv1NLHQmOGYY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"Adit222\",\n    \"accountnumber\":3723,\n    \"emailaddress\":\"adit222@gmail.com\",\n    \"identitynumber\":1231\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "ms-rickykurniawan-betest.vercel.app/users",
+					"host": [
+						"ms-rickykurniawan-betest",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by account number",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY3YjA0MDg0ODBlZjlkZGI0OWE5ZiIsImFjY291bnROdW1iZXIiOjk4ODcsImlkZW50aXR5bk51bWJlciI6NTYyMzIsImlhdCI6MTY2ODI2MzEyNywiZXhwIjoxNjY4NDM1OTI3fQ.ytzx7VSVfFhRMySd9i-1tpQh0x7sbUhMv1NLHQmOGYY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "ms-rickykurniawan-betest.vercel.app/users/accountnumber/3333",
+					"host": [
+						"ms-rickykurniawan-betest",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"users",
+						"accountnumber",
+						"3333"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by identity number",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY3YjA0MDg0ODBlZjlkZGI0OWE5ZiIsImFjY291bnROdW1iZXIiOjk4ODcsImlkZW50aXR5bk51bWJlciI6NTYyMzIsImlhdCI6MTY2ODI2MzEyNywiZXhwIjoxNjY4NDM1OTI3fQ.ytzx7VSVfFhRMySd9i-1tpQh0x7sbUhMv1NLHQmOGYY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "ms-rickykurniawan-betest.vercel.app/users/identitynumber/54321",
+					"host": [
+						"ms-rickykurniawan-betest",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"users",
+						"identitynumber",
+						"54321"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY3YjA0MDg0ODBlZjlkZGI0OWE5ZiIsImFjY291bnROdW1iZXIiOjk4ODcsImlkZW50aXR5bk51bWJlciI6NTYyMzIsImlhdCI6MTY2ODI2MzEyNywiZXhwIjoxNjY4NDM1OTI3fQ.ytzx7VSVfFhRMySd9i-1tpQh0x7sbUhMv1NLHQmOGYY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "ms-rickykurniawan-betest.vercel.app/users/636f2d60a0514b8f13fa3511",
+					"host": [
+						"ms-rickykurniawan-betest",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"users",
+						"636f2d60a0514b8f13fa3511"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get token",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"sevil\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "ms-rickykurniawan-betest.vercel.app/users/token",
+					"host": [
+						"ms-rickykurniawan-betest",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"users",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update username user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzNmY3YjE2Mjk0NDc4NDIyMGJmNmQ4ZiIsImFjY291bnROdW1iZXIiOjk4ODcsImlkZW50aXR5bk51bWJlciI6NTYyMzIsImlhdCI6MTY2ODI1MTIzNiwiZXhwIjoxNjY4NDI0MDM2fQ.pffHIzlCA0xJjl-z8If_c8YdXbASPbRk_2BEdS5jKGs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"Deva\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "ms-rickykurniawan-betest.vercel.app/users/636e851896c6cbc9e34bfaa1",
+					"host": [
+						"ms-rickykurniawan-betest",
+						"vercel",
+						"app"
+					],
+					"path": [
+						"users",
+						"636e851896c6cbc9e34bfaa1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
