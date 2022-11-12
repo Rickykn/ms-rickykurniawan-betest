@@ -16,7 +16,7 @@ mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-const { userRoutes } = require("./routes");
+const { userRoutes } = require("./src/routes");
 
 const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
