@@ -192,13 +192,20 @@ class UserService extends Service {
       const { username } = req.body;
       const { id } = req.params;
 
-      await User.findByIdAndUpdate(
+      const user = await User.findByIdAndUpdate(
         id,
         { userName: username },
         {
           useFindAndModify: false,
         }
       );
+
+      if (user == null) {
+        return this.handleError({
+          message: "User Not Found",
+          statusCode: 400,
+        });
+      }
 
       redis.flushall();
 
