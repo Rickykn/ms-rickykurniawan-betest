@@ -23,19 +23,11 @@ const db = mongoose.connection;
 db.on("error", (error) => console.error(error));
 db.on("open", () => console.log("connected to Database"));
 
-// app.get("/", (req, res) => {
-//   res.send("<h1>User Data API</h1>");
-// });
-
-// app.use("/", userRoutes);
-
 app.get("/", (req, res) => {
-  res.send("Hey this is my API running 🥳");
+  res.send("<h1>User Data API</h1>");
 });
 
-app.get("/about", (req, res) => {
-  res.send("This is my about route..... ");
-});
+app.use("/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log("Listening in port", PORT);
