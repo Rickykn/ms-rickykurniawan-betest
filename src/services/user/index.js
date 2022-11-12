@@ -110,6 +110,8 @@ class UserService extends Service {
           statusCode: 400,
         });
       }
+
+      redis.flushall();
       return this.handleSuccess({
         message: "Deleted Success",
         statusCode: 200,
@@ -197,6 +199,8 @@ class UserService extends Service {
           useFindAndModify: false,
         }
       );
+
+      redis.flushall();
 
       return this.handleSuccess({
         message: "Updated User",
