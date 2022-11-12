@@ -1,7 +1,8 @@
 const router = require("express").Router();
 const UserService = require("../services/user");
+const { authorizedLoggedInUser } = require("../middlewares/authMiddleware");
 
-router.get("/", async (req, res) => {
+router.get("/", authorizedLoggedInUser, async (req, res) => {
   try {
     const serviceResult = await UserService.getAllUser(req);
 
@@ -35,24 +36,28 @@ router.get("/accountnumber/:accountnumber", async (req, res) => {
   }
 });
 
-router.get("/identitynumber/:identitynumber", async (req, res) => {
-  try {
-    const serviceResult = await UserService.getUserByIdentityNumber(req);
+router.get(
+  "/identitynumber/:identitynumber",
+  authorizedLoggedInUser,
+  async (req, res) => {
+    try {
+      const serviceResult = await UserService.getUserByIdentityNumber(req);
 
-    if (!serviceResult.success) throw serviceResult;
+      if (!serviceResult.success) throw serviceResult;
 
-    return res.status(serviceResult.statusCode || 200).json({
-      message: serviceResult.message,
-      result: serviceResult.data,
-    });
-  } catch (err) {
-    return res.status(err.statusCode || 500).json({
-      message: err.message,
-    });
+      return res.status(serviceResult.statusCode || 200).json({
+        message: serviceResult.message,
+        result: serviceResult.data,
+      });
+    } catch (err) {
+      return res.status(err.statusCode || 500).json({
+        message: err.message,
+      });
+    }
   }
-});
+);
 
-router.post("/", async (req, res) => {
+router.post("/", authorizedLoggedInUser, async (req, res) => {
   try {
     const serviceResult = await UserService.createUser(req);
 
@@ -69,13 +74,47 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authorizedLoggedInUser, async (req, res) => {
   try {
     const serviceResult = await UserService.deleteUser(req);
 
     if (!serviceResult.success) throw serviceResult;
 
     return res.status(serviceResult.statusCode || 201).json({
+      message: serviceResult.message,
+      result: serviceResult.data,
+    });
+  } catch (err) {
+    return res.status(err.statusCode || 500).json({
+      message: err.message,
+    });
+  }
+});
+
+router.get("/token", async (req, res) => {
+  try {
+    const serviceResult = await UserService.getUserToken(req);
+
+    if (!serviceResult.success) throw serviceResult;
+
+    return res.status(serviceResult.statusCode || 200).json({
+      message: serviceResult.message,
+      result: serviceResult.data,
+    });
+  } catch (err) {
+    return res.status(err.statusCode || 500).json({
+      message: err.message,
+    });
+  }
+});
+
+router.put("/:id", authorizedLoggedInUser, async (req, res) => {
+  try {
+    const serviceResult = await UserService.updateUser(req);
+
+    if (!serviceResult.success) throw serviceResult;
+
+    return res.status(serviceResult.statusCode || 200).json({
       message: serviceResult.message,
       result: serviceResult.data,
     });

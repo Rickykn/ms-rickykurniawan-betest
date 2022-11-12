@@ -16,6 +16,7 @@ const userSchema = new mongoose.Schema({
   identityNumber: {
     type: Number,
     required: true,
+    unique: true,
   },
 });
 
