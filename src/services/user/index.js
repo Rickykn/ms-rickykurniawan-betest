@@ -130,7 +130,6 @@ class UserService extends Service {
         data: newUser,
       });
     } catch (err) {
-      console.log(err);
       this.handleError({
         message: "Server Error",
         statusCode: 500,

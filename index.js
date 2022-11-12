@@ -7,7 +7,7 @@ const app = express();
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const PORT = 4000;
 
 app.use(cors());
 app.use(express.json());
@@ -27,7 +27,15 @@ db.on("open", () => console.log("connected to Database"));
 //   res.send("<h1>User Data API</h1>");
 // });
 
-app.use("/", userRoutes);
+// app.use("/", userRoutes);
+
+app.get("/", (req, res) => {
+  res.send("Hey this is my API running 🥳");
+});
+
+app.get("/about", (req, res) => {
+  res.send("This is my about route..... ");
+});
 
 app.listen(PORT, () => {
   console.log("Listening in port", PORT);
