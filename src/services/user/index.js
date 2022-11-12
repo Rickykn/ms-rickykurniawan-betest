@@ -1,6 +1,14 @@
 const Service = require("../service");
 const User = require("../../models/user");
 const { generateToken } = require("../../lib/jwt");
+const Redis = require("ioredis");
+const fs = require("fs");
+
+const redis = new Redis({
+  host: process.env.HOST,
+  port: process.env.PORT_REDIS,
+  password: process.env.PASSWORD,
+});
 
 class UserService extends Service {
   static getAllUser = async (req) => {
@@ -13,6 +21,8 @@ class UserService extends Service {
           statusCode: 400,
         });
       }
+
+      redis.set(process.env.REDIS_KEY, JSON.stringify(data));
 
       return this.handleSuccess({
         message: "User Found",
@@ -159,6 +169,8 @@ class UserService extends Service {
         identityNumber: identitynumber,
       });
       const newUser = await user.save();
+
+      redis.flushall();
 
       return this.handleSuccess({
         message: "Registered User",

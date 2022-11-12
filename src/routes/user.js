@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const UserService = require("../services/user");
 const { authorizedLoggedInUser } = require("../middlewares/authMiddleware");
+const { cache } = require("../middlewares/cache");
 
-router.get("/", authorizedLoggedInUser, async (req, res) => {
+router.get("/", authorizedLoggedInUser, cache, async (req, res) => {
   try {
     const serviceResult = await UserService.getAllUser(req);
 
