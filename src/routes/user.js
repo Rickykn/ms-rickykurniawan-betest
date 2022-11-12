@@ -1,7 +1,6 @@
 const router = require("express").Router();
 const UserService = require("../services/user");
 
-//get all
 router.get("/", async (req, res) => {
   try {
     const serviceResult = await UserService.getAllUser(req);
@@ -53,7 +52,6 @@ router.get("/identitynumber/:identitynumber", async (req, res) => {
   }
 });
 
-//create user
 router.post("/", async (req, res) => {
   try {
     const serviceResult = await UserService.createUser(req);
